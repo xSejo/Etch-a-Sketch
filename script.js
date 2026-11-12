@@ -25,7 +25,7 @@ function randomizeRGB() {
 }
 
 const container = document.getElementById("container");
-const btn = document.getElementById("edit-button");
+const editBtn = document.getElementById("edit-button");
 let initial = 16;
 drawGrid(initial);
 
@@ -44,8 +44,9 @@ container.addEventListener("mouseover", (e) => {
   div.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${opacity})`;
 });
 
-btn.addEventListener("click", () => {
-  const LIMIT = 100;
+editBtn.addEventListener("click", () => {
+  const MAX_LIMIT = 100;
+  const MIN_LIMIT = 1;
   let input;
 
   do {
@@ -53,7 +54,7 @@ btn.addEventListener("click", () => {
     if (response === null) return;
 
     input = Number(response);
-  } while (isNaN(input) || input > 100 || input < 1);
+  } while (isNaN(input) || input > MAX_LIMIT || input < MIN_LIMIT);
   {
     alert("Passed! Grid size has been changed");
     deleteGrid();
