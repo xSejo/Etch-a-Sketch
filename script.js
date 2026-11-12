@@ -26,8 +26,8 @@ function randomizeRGB() {
 
 const container = document.getElementById("container");
 const editBtn = document.getElementById("edit-button");
-let initial = 16;
-drawGrid(initial);
+let initialGrid = 16;
+drawGrid(initialGrid);
 
 container.addEventListener("mouseover", (e) => {
   const div = e.target;
