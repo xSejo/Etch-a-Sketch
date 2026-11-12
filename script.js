@@ -17,11 +17,11 @@ function deleteGrid() {
 }
 
 function randomizeRGB() {
-  return [
-    Math.floor(Math.random() * 256),
-    Math.floor(Math.random() * 256),
-    Math.floor(Math.random() * 256),
-  ];
+  return {
+    r: Math.floor(Math.random() * 256),
+    g: Math.floor(Math.random() * 256),
+    b: Math.floor(Math.random() * 256),
+  };
 }
 
 const container = document.getElementById("container");
@@ -33,7 +33,7 @@ container.addEventListener("mouseover", (e) => {
   const div = e.target;
   if (!div.classList.contains("grid-cell")) return;
 
-  let [r, g, b] = randomizeRGB();
+  let { r, g, b } = randomizeRGB();
   let opacity = Number(div.dataset.opacity || 0);
 
   if (opacity < 1) {
